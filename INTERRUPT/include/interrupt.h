@@ -1,0 +1,1 @@
+#pragma once#include "pico/stdio.h"#include "hardware/gpio.h"#include "sx1276.h"#include "cstdio"extern LoRa Lora;namespace INTERRUPT{  void LoraInterruptSetup(uint8_t dio);}
