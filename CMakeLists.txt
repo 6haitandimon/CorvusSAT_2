@@ -16,6 +16,7 @@ add_subdirectory(ICM20948)
 add_subdirectory(loraPacket)
 add_subdirectory(INTERRUPT)
 add_subdirectory(GPS)
+add_subdirectory(PCF8574)
 
 add_executable(cansat
         main.cpp
@@ -34,6 +35,7 @@ target_link_libraries(cansat
         ICM20948
         INTERRUPT
         GPS
+        PCF8574
 )
 
 pico_add_extra_outputs(cansat)
