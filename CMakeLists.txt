@@ -15,6 +15,7 @@ add_subdirectory(BME280)
 add_subdirectory(ICM20948)
 add_subdirectory(loraPacket)
 add_subdirectory(INTERRUPT)
+add_subdirectory(GPS)
 
 add_executable(cansat
         main.cpp
@@ -26,11 +27,13 @@ pico_enable_stdio_uart(cansat 0)
 target_link_libraries(cansat
         pico_stdlib
         hardware_spi
+        hardware_dma
         SX1276
         loraPacket
         BME280
         ICM20948
         INTERRUPT
+        GPS
 )
 
 pico_add_extra_outputs(cansat)
