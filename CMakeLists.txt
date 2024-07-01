@@ -17,18 +17,24 @@ add_subdirectory(loraPacket)
 add_subdirectory(INTERRUPT)
 add_subdirectory(GPS)
 add_subdirectory(PCF8574)
+#add_subdirectory(FileSystem)
+#add_subdirectory(SDCard)
+add_subdirectory(FatFs_SPI build)
 
 add_executable(cansat
         main.cpp
 )
 
-pico_enable_stdio_usb(cansat 1)
-pico_enable_stdio_uart(cansat 0)
+pico_enable_stdio_usb(cansat 0)
+pico_enable_stdio_uart(cansat 1)
 
 target_link_libraries(cansat
         pico_stdlib
+        pico_multicore
+#        pico_mutex
         hardware_spi
         hardware_dma
+        hardware_watchdog
         SX1276
         loraPacket
         BME280
@@ -36,6 +42,8 @@ target_link_libraries(cansat
         INTERRUPT
         GPS
         PCF8574
+        FatFs_SPI
+
 )
 
 pico_add_extra_outputs(cansat)

@@ -11,4 +11,5 @@ target_link_libraries(BME280
         INTERFACE
         pico_stdlib
         hardware_i2c
+#        pico_mutex
 )
